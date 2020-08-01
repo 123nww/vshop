@@ -48,16 +48,21 @@ export default {
   text-align: center;
   height: 49px;
   font-size: 12px;
-  margin: 5px;
-  /* padding: 3px; */
+  /*margin: 5px;
+   padding: 3px; */
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: space-evenly;
 }
 
 #tab-bar-item img {
   height: 24px;
   width: 24px;
   vertical-align: -webkit-baseline-middle;
-  margin:2px;
-  /*padding-top:3px; */
+  /*margin:2px;
+  padding-top:3px; */
+  
 }
 
 </style>

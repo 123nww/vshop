@@ -20,11 +20,17 @@ export default {
       default() {
         return [];
       }
+    },
+    tabIndex:{
+      type:Number,
+      default(){
+        return 0;
+      }
     }
   },
   data() {
     return {
-      currentIndex: 0
+      currentIndex: this.tabIndex
     };
   },
   methods:{

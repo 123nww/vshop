@@ -145,3 +145,11 @@ Vue.use(Sku);
 //35 动作面板
 import { ActionSheet } from 'vant';
 Vue.use(ActionSheet);
+
+//36上传图片
+import { Uploader } from 'vant';
+Vue.use(Uploader);
+
+//37 导入图片
+import { Image as VanImage } from 'vant';
+Vue.use(VanImage);

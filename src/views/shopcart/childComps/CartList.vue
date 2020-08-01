@@ -10,7 +10,7 @@
         ></cart-list-item>
       </div>
       <div v-else>
-        <van-empty description="购物车空空如也" image="search"> 
+        <van-empty description="购物车空空如也" :image="image"> 
           <van-button round type="danger" class="bottom-button" @click="backClick">去逛一逛</van-button>
         </van-empty>
       </div>
@@ -41,6 +41,7 @@ export default {
   data() {
     return {
       recommendInfo: [],
+      image:require("@/assets/img/cart/emptycart.svg"),
     };
   },
   mixins: [mixin],
@@ -72,13 +73,15 @@ export default {
 
 <style scoped>
 #cart-list {
-  height: calc(100% - 44px - 59px - 49px);
+  height: calc(100% - 44px - 49px - 49px);
   /* overflow: hidden; */
 }
+
 .content {
   height: 100%;
   overflow: hidden;
 }
+
 .recomment {
   text-align: center;
   /* margin-top: 20px; */

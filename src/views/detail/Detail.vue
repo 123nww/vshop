@@ -18,7 +18,7 @@
         ref="commentinfo"
       ></detail-comment-info>
       <!-- <div class="recomment" ref="goodslist">推荐</div> -->
-       <van-divider  class="recomment" ref="goodslist">推荐</van-divider>
+      <van-divider class="recomment" ref="goodslist">推荐</van-divider>
       <goods-list :goodslist="recommendInfo"></goods-list>
     </scroll>
 
@@ -156,10 +156,9 @@ export default {
         priceRange: priceRange,
         totalStock: totalStock,
         imgurl: imgurl,
-        title :this.goods.title,
-        desc:this.goods.desc,
+        title: this.goods.title,
+        desc: this.goods.desc,
       };
-  
     });
 
     //请求推荐数据
@@ -184,6 +183,7 @@ export default {
     // product.count += 1;
     // console.log(item);
     // console.log(product);
+    // this.ISSHOWMAINTAR(false);
   },
   mixins: [mixin, backTopMixin],
   mounted() {},
@@ -234,8 +234,7 @@ export default {
       this.isShow = -postiton.y > 1000;
     },
     addCart() {
-       this.isSku = true;
-
+      this.isSku = true;
 
       // const product = {};
       // product.title = this.goods.title;
@@ -264,20 +263,22 @@ export default {
 
 <style scoped>
 #detail {
-  position: relative;
-  z-index: 9;
-  background-color: #fff;
+  /* position: relative;
+  z-index: 9; */
+  /* background-color: #fff; */
   height: 100vh;
+}
+.nav-var {
+  /* position: relative; */
+  /* z-index: 9; */
+  background-color: #fff;
+  height: 44px;
+  line-height: 4px;
 }
 
 .content {
   height: calc(100% - 44px - 49px);
-}
-
-.nav-var {
-  position: relative;
-  z-index: 9;
-  background-color: #fff;
+  overflow: hidden;
 }
 
 .recomment {

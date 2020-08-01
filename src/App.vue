@@ -11,31 +11,25 @@
 import MainTabBar from "components/content/MainTabBar.vue";
 
 // 禁止手机端扩大和缩小手势
-window.onload = function() {
-  document.addEventListener("touchstart", function(event) {
+window.onload = function () {
+  document.addEventListener("touchstart", function (event) {
     if (event.touches.length > 1) {
       event.preventDefault();
     }
   });
-  document.addEventListener("gesturestart", function(event) {
+  document.addEventListener("gesturestart", function (event) {
     event.preventDefault();
+  });
+  document.addEventListener("touchmove", function (event) {
+    event.passive = false;
   });
 };
 
 export default {
   name: "App",
   components: {
-    MainTabBar
+    MainTabBar,
   }
-  // ,
-  // created() {
-  //   this.$watch(
-  //     "text",
-  //     debounce((newValue, oldValue) => {
-  //       console.log(newValue);
-  //     }, 300)
-  //   );
-  // }
 };
 </script>
 <style>

@@ -174,7 +174,7 @@ export default {
   position: relative;
 }
 .home-nav {
-  box-shadow: 0 1px 1px rgba(100, 100, 100, 0.1);
+  //box-shadow: 0 1px 1px rgba(100, 100, 100, 0.1);
   background-color: var(--color-high-text);
   color: #fff;
 
@@ -198,7 +198,7 @@ export default {
   left: 0;
   right: 0;
   top: 44px;
-  bottom: 55px;
+  bottom: 49px;
 }
 
 .tab-contro2 {

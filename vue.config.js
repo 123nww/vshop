@@ -21,10 +21,47 @@ module.exports = {
             .set('common', resolve('./src/common'))
         //注意 store 和 router 没必要配置
 
+        //svg设置
+        config.module
+            .rule('svg')
+            .exclude.add(resolve('src/icons'))
+            .end()
+        config.module
+            .rule('icons')
+            .test(/\.svg$/)
+            .include.add(resolve('src/icons'))
+            .end()
+            .use('svg-sprite-loader')
+            .loader('svg-sprite-loader')
+            .options({
+                symbolId: 'icon-[name]'
+            })
+            .end()
+
     },
+    // chainWebpack(config) {
+    //     // svg设置
+    //     config.module
+    //         .rule('svg')
+    //         .exclude.add(resolve('src/icons'))
+    //         .end()
+    //     config.module
+    //         .rule('icons')
+    //         .test(/\.svg$/)
+    //         .include.add(resolve('src/icons'))
+    //         .end()
+    //         .use('svg-sprite-loader')
+    //         .loader('svg-sprite-loader')
+    //         .options({
+    //             symbolId: 'icon-[name]'
+    //         })
+    //         .end()
+    // },
+
     devServer: {
         // 项目运行时候的端口号
-        port: 9004
+        port: 9004,
+        open:true
 
     }
 

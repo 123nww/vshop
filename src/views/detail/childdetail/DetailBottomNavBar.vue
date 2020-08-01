@@ -312,7 +312,7 @@ export default {
 #detail-bottom-nav-bar {
   height: 49px;
   background-color: #fff;
-
+  z-index: 9;
   // position: fixed;
   // left: 0;
   // right: 0;

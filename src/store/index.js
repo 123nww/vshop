@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import getters from './getter'
+// 引入本地存储
+import {
+  getLocalStore,
+  setLocalStore,
+  removeLocalStore
+} from '@/config/global'
 
 Vue.use(Vuex)
 
@@ -27,16 +33,23 @@ const mutations = {
   },
   DELETECARTlIST(state, payload) {
     let nowiid = payload.iid;
-    console.log(state.cartList);
     const size = state.cartList.length;
-    console.log(size)
     if (size !== 0) {
       for (let i = 0; i < size; i++) {
         if (nowiid === state.cartList[i].iid) {
-          console.log(123456);
-          state.cartList.splice(i,1);
+          state.cartList.splice(i, 1);
         }
       }
+      setLocalStore('state', state);
+    }
+  },
+  INIT_SHOPCART(state) {
+    // 先存本地取购物车数据
+    // const initShopCart = getLocalStore('cartList');
+    const initShopCart = getLocalStore('state');
+    if (initShopCart) {
+      //购物车有数据那么就把它通过对象的方式赋值给store
+      state.cartList = JSON.parse(initShopCart).cartList;
     }
   }
 }
@@ -55,6 +68,8 @@ const actions = {
       } else {
         context.commit('ADDTOCART', payload)
       }
+      //setLocalStore('cartList', state.shopCart );
+      setLocalStore('state', state);
       resolve("成功加入购物车")
     });
   },
@@ -66,6 +81,9 @@ const actions = {
   },
   DELETECARTlIST(context, payload) {
     context.commit('DELETECARTlIST', payload);
+  },
+  INIT_SHOPCART(context) {
+    context.commit('INIT_SHOPCART');
   }
 }
 

@@ -83,23 +83,29 @@ export default {
       return this.cartList.filter((item) => item.checked).length;
     },
   },
+  mounted(){
+    this._initData();
+  },
   methods: {
-    ...mapActions(["CHECKBUTTON"]),
+    ...mapActions(["CHECKBUTTON","INIT_SHOPCART"]),
     checkButton() {
       //console.log(this.isSelectAll)
       //this.$store.dispatch('CHECKBUTTON',this.checked);
       this.CHECKBUTTON(this.isSelectAll);
     },
-    // 全选
-    checkedAllClick() {
-      this.cartList.forEach((item) => (item.checked = !this.isChecked));
+    _initData(){
+      this.INIT_SHOPCART();
     },
-    // 反选
-    itemChange() {
-      let result = this.cartList.filter((item) => item.checked === true);
-      this.checkedAll =
-        result.length > 0 && result.length === this.cartList.length;
-    },
+    // // 全选
+    // checkedAllClick() {
+    //   this.cartList.forEach((item) => (item.checked = !this.isChecked));
+    // },
+    // // 反选
+    // itemChange() {
+    //   let result = this.cartList.filter((item) => item.checked === true);
+    //   this.checkedAll =
+    //     result.length > 0 && result.length === this.cartList.length;
+    // },
     // 按钮提交
     onSubmit() {
       if (this.checkLength === 0) {
@@ -127,6 +133,7 @@ export default {
             //   this.clearCartList();
             //   this.checkedAll = false;
             // }, 1500);
+            //this.$router.push("/login");
           })
           .catch(() => {
             return false;
@@ -152,7 +159,7 @@ export default {
 
 .bot-bar {
   position: fixed;
-  bottom: 59px;
+  bottom: 49px;
   left: 0;
   right: 0;
 

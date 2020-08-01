@@ -8,6 +8,7 @@ const Category = ()=> import('../views/category/Category')
 const Shopcart = ()=> import('../views/shopcart/ShopCart')
 const Profiled = ()=> import('../views/profile/Profile')
 const Detail = ()=> import('../views/detail/Detail')
+const Login = ()=> import('../views/login/Login')
 
 const routes = [
   {
@@ -38,17 +39,21 @@ const routes = [
     path: '/detail/:iid',
     name: Detail,
     component: Detail
+  },
+  {
+    path: '/login',
+    name: Login,
+    component: Login
   }
-
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  //mode: 'history',
   //base: process.env.BASE_URL,
   routes
 })
 
-//重复点菜单报错问题
+//重复点报错问题
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push (location) {
 return originalPush.call(this, location).catch(err => err)
